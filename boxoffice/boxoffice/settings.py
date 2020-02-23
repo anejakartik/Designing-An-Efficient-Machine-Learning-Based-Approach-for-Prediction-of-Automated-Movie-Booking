@@ -31,12 +31,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'user',
+    'theatre',
+    'movie',
+    'ticket',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
@@ -54,7 +59,7 @@ ROOT_URLCONF = 'boxoffice.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r'K:\BoxOffice\python-django\boxoffice\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,10 +79,17 @@ WSGI_APPLICATION = 'boxoffice.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+'default': {
+'ENGINE': 'django.db.backends.mysql',
+'NAME': 'boxoffice',
+'USER': 'root',
+'PASSWORD': '',
+'HOST': '',
+'PORT': '',
+'OPTIONS': {
+'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+}
+}
 }
 
 
@@ -118,3 +130,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    #'/var/www/static/',
+]
+STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
+MEDIA_URL = '/media_cdn/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "static_cdn",'media_cdn')
+CRISPY_TEMPLATE_PACK =  'bootstrap4'
+LOGIN_REDIRECT_URL =  '/'
