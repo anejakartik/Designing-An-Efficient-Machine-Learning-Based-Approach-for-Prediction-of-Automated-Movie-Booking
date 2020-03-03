@@ -15,3 +15,11 @@ def movie(request):
 
 def about(request):
     return render(request,"user/about.html")
+
+def signup(request):
+    return render(request,"user/signup.html")
+def login(request):
+    return render(request,"user/login.html")
+def signup_otp(request):
+
+    return render(request,"user/otp_signup.html")
