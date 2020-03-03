@@ -18,8 +18,12 @@ def about(request):
 
 def signup(request):
     return render(request,"user/signup.html")
+
 def login(request):
     return render(request,"user/login.html")
-def signup_otp(request):
 
+def signup_otp(request):
     return render(request,"user/otp_signup.html")
+
+def ticket_select(request):
+    return render(request,"user/ticket_selection.html")

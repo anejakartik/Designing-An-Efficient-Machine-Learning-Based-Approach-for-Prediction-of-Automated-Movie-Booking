@@ -1,41 +1,36 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+{% load static %}
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Free Theater Website Template | 404-page :: w3layouts</title>
+<title> 404-page :: BoxOFFice</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-<script src='js/jquery.min.js'></script>
-<script src='js/jquery.color-RGBa-patch.js'></script>
-<script src='js/example.js'></script>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.color-RGBa-patch.js'%}"></script>
+<script src="{% static 'js/example.js'%}"></script>
 </head>
 <body>
-<div class="header">
-	<div class="header-top">
-		<div class="wrap">
-			<div class="banner-no">
-		  		<img src="images/banner-no.png" alt=""/>
-		    </div>
-			  <div class="nav-wrap">
-					<ul class="group" id="example-one">
-			           <li class="current_page_item"><a href="index.html">Home</a></li>
-			           <li><a href="about.html">About</a></li>
-			  		   <li><a href="movies_events.html">Movies & Events</a></li>
-			  		   <li><a href="contact.html">Contact</a></li>
-			        </ul>
-			  </div>
- 			<div class="clear"></div>
-   		</div>
+	<div class="header">
+		<div class="header-top">
+			<div class="wrap">
+				<div class="banner-no">
+						<img src='{% static "images/banner-no.png" %}' alt=""/>
+					</div>
+					<div class="nav-wrap">
+						<ul class="group" id="example-one">
+									 <li class="current_page_item"><a href="/index">Home</a></li>
+									 <li><a href="/about">About</a></li>
+								 <li><a href="/movies">Movies & Events</a></li>
+								 <li><a href="/contact">Contact</a></li>
+								</ul>
+					</div>
+				<div class="clear"></div>
+				</div>
     </div>
 <div class="block">
 	<div class="wrap">
 		<div class="h-logo">
-			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+			<a href="/index"><img src='{% static "images/logo.png" %}'alt=""/></a>
 		</div>
         <form action="#" id="reservation-form">
 		       <fieldset>
@@ -65,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		  			<h1>404</h1>
 		 		</div>
 			</div>
-				<div class="clear"></div>		
+				<div class="clear"></div>
 			</div>
 	</div>
 </div>
@@ -99,10 +94,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<div class=social>
-						<a href="#"><img src="images/fb.png" alt=""/></a>
-						<a href="#"><img src="images/tw.png" alt=""/></a>
-						<a href="#"><img src="images/dribble.png" alt=""/></a>
-						<a href="#"><img src="images/pinterest.png" alt=""/></a>
+						<a href="#"><img src='{% static "images/fb.png" %}' alt=""/></a>
+						<a href="#"><img src='{% static "images/tw.png" %}'alt=""/></a>
+						<a href="#"><img src='{% static "images/dribble.png" %}'alt=""/></a>
+						<a href="#"><img src='{% static "images/pinterest.png" %}' alt=""/></a>
 					</div>
 				</div>
 				<div class="clear"></div>
@@ -112,7 +107,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="footer-bottom">
 	<div class="wrap">
 	<div class="copy">
-		<p>© 2013 Theater. All Rights Reserved | Design by <a href="http://w3layouts.com">W3Layouts</a></p>
+		<p>© 2020 Theater. All Rights Reserved | Design by <a href="http://w3layouts.com">Kartik Aneja</a></p>
 	</div>
  	</div>
 </div>

@@ -12,6 +12,7 @@ urlpatterns = [
         path('signup_otp/',views.signup_otp, name='signup_detail'),
         path('login/',views.login, name='login'),
         path('signup/',views.signup, name='signup'),
+        path('ticket_select/',views.ticket_select, name='ticket_select'),
     #    url('signup/',views.cust_signupView, name='signup'),
 
         ]
