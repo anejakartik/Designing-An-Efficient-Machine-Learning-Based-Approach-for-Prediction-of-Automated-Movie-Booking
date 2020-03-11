@@ -1,0 +1,12 @@
+appdirs
+bcrypt
+cffi
+django-audit-log
+django-auditlog
+django-jsonfield
+django-sslserver
+packaging
+pycparser
+pyparsing
+pytz
+six

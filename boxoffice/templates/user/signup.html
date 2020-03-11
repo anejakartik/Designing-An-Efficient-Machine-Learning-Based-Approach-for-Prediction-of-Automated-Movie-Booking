@@ -33,7 +33,8 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('/static/images1/bg-01.jpg');">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form action="signup" method="post" class="login100-form validate-form">
+					 {% csrf_token %}
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
@@ -41,14 +42,22 @@
 					<span class="login100-form-title p-b-34 p-t-27">
 						Sign Up
 					</span>
+					<div class="wrap-input100 validate-input" data-validate = "Enter Username">
+				{{ form.username }}
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter Email">
-						<input class="input100" type="text" name="email" placeholder="Email">
+						{{ form.email }}
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						{{ form.password1 }}
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Confirm password">
+						{{ form.password2 }}
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
