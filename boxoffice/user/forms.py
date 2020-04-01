@@ -29,3 +29,11 @@ class SignupForm(UserCreationForm):
             'class': 'input100',
             'name': 'pass2',
             'placeholder': 'Confirm Password'}
+
+class SendEmailForm(forms.Form):
+    subject = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': ('Subject')}))
+    message = forms.CharField(widget=forms.Textarea)
+    users = forms.ModelMultipleChoiceField(label="To",
+                                           queryset=User.objects.all(),
+                                           widget=forms.SelectMultiple())

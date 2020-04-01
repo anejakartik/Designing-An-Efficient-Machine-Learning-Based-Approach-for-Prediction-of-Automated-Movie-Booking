@@ -15,6 +15,14 @@ urlpatterns = [
         path('ticket_select/',views.ticket_select, name='ticket_select'),
         url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
+        url('success_email/',views.success_email, name='success_email'),
+        url('link_invalid/',views.link_invalid, name='link_invalid'),
+        url('activate_link/',views.activate_link, name='activate_link'),
     #    url('signup/',views.cust_signupView, name='signup'),
+        url(
+        regex=r'email-users/',
+        view=views.SendUserEmails,
+        name='email'
+    ),
 
         ]

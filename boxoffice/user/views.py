@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
-from .forms import SignupForm
+from .forms import SignupForm,SendEmailForm
+from django.urls import reverse_lazy
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -10,7 +11,8 @@ from .tokens import account_activation_token
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.contrib.auth import login as auth_login
-
+from django.contrib.admin.views.decorators import staff_member_required
+from django.views.generic.edit import FormView
 # Create your views here.
 def index(request):
     return render(request,"user/index.html")
@@ -47,7 +49,7 @@ def signup(request):
                         mail_subject, message, to=[to_email]
             )
             email.send()
-            return HttpResponse('Please confirm your email address to complete the registration')
+            return redirect('/activate_link')
     else:
 
         form = SignupForm()
@@ -64,10 +66,18 @@ def activate(request, uidb64, token):
         user.save()
         #auth_login(request, user)
         # return redirect('home')
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        return redirect('/success_email')
     else:
-        return HttpResponse('Activation link is invalid!')
+        return redirect('/link_invalid')
 
+def success_email(request):
+    return render(request,"user/success.html")
+
+def link_invalid(request):
+    return render(request,"user/link_invalid.html")
+
+def activate_link(request):
+    return render(request,"user/activate_link.html")
 
 def login(request):
     return render(request,"user/login.html")
@@ -77,3 +87,18 @@ def signup_otp(request):
 
 def ticket_select(request):
     return render(request,"user/ticket_selection.html")
+
+@staff_member_required
+class SendUserEmails(FormView):
+    template_name = 'users/send_email.html'
+    form_class = SendEmailForm
+    success_url = reverse_lazy('admin:user_customer_changelist')
+
+    def form_valid(self, form):
+        users = form.cleaned_data['users']
+        subject = form.cleaned_data['subject']
+        message = form.cleaned_data['message']
+        email_users.delay(users, subject, message)
+        user_message = '{0} users emailed successfully!'.format(form.cleaned_data['users'].count())
+        messages.success(self.request, user_message)
+        return super(SendUserEmails, self).form_valid(form)
