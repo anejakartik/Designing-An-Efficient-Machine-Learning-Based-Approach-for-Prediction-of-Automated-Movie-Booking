@@ -6,4 +6,5 @@ Box-Office is project designed to book movie tickets or shows according customer
 
 This project is developed to make customer experience better and growth in theatre tickets sale
 
+## Getting Started
 
