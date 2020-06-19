@@ -49,6 +49,8 @@ This appliction contains:
 
 -> Other (Boxoffice,Movie,user etc)- These folder contain the codes for working of application.
 
+Project Running command - python manage.py runserver
+
 ## 5) Implementation Images
 
 It contains the images for working of BoxOffice Dango Application and Machine Learning Analysis.
