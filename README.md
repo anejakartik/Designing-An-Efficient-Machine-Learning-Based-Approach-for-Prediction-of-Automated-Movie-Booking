@@ -44,7 +44,9 @@ With help of Results obtained by Machine Learning Analysis a project is built on
 This appliction contains: 
 
 -> Project Requirements.txt - Dependencies required to run the application.(command line - pip install -r  Project Requirements.txt)
+
 -> Boxoffice.sql - It is the DataBase file for running the storage of data.(should be installed in xampp)
+
 -> Other (Boxoffice,Movie,user etc)- These folder contain the codes for working of application.
 
 ## 5) Implementation Images
