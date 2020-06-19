@@ -1,4 +1,4 @@
-# Designing-An-Efficient-Machine-Learning-Based-Approach-for-Prediction-of-Automated-Movie-Booking:-
+# Designing An Efficient Machine Learning Based Approach for Prediction of Automated Movie Booking:-
 
 Application Name - BoxOffice
 
