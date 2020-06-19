@@ -8,3 +8,16 @@ This project is developed to make customer experience better and growth in theat
 
 ## Getting Started
 
+## 1) BoxOfficeppt
+
+A PowerPoint Application to breifly explain the current senario of Movie booking System and also discuss the possibility of improvement with the MAchine Learning.
+
+It contains proposed methodology and designs for applications in devlopment.
+
+
+
+## 3) BoxOffice
+## 3) BoxOffice 
+
+Appliction Develope
+
