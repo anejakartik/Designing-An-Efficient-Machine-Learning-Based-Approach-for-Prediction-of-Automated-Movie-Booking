@@ -2,9 +2,11 @@ from django.db import models
 
 # Create your models here.
 from django.contrib.auth.models import Group, User
-from django.contrib.auth.models import BaseUserManager
-class CustomerManager(BaseUserManager):
+from django.contrib.auth.models import BaseUserManager,AbstractUser
 
+
+
+class CustomerManager(BaseUserManager):
 
     def get_queryset(self):
 

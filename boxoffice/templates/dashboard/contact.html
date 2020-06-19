@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>BoxOffice</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css" media="all" />
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.color-RGBa-patch.js'%}"></script>
+<script src="{% static 'js/example.js'%}"></script>
+
+</head>
+<body>
+<div class="header">
+	<div class="header-top">
+		<div class="wrap">
+			<div class="banner-no">
+		  		<img src='{% static "images/bn-sy.png" %}' alt="" style="width: 140px;height: 136px;margin-left: 70px;">
+		    </div>
+			  <div class="nav-wrap">
+					<ul class="group" id="example-one">
+			           <li><a href="/index">Home</a></li>
+			           <li><a href="/about">About</a></li>
+			  		   <li><a href="/movies">Movies & Events</a></li>
+			  		   <li class="current_page_item"><a href="/contact">Contact</a></li>
+			        </ul>
+			  </div>
+ 			<div class="clear"></div>
+   		</div>
+    </div>
+<div class="block">
+	<div class="wrap">
+		<div class="h-logo">
+			<a href="/index"><img src='{% static "images/logo1.png" %}'alt=""/></a>
+		</div>
+		<div id="reservation-form">
+			{% if request.user.is_authenticated %}
+			<div class="field">
+			<h3>Welcome {{ request.user }}  </h3>
+			</div>
+			<div class="field1">
+				<a href="logout_now/"><button class="btn btn-outline-primary">Logout</button></a>
+			</div>
+			{% else %}
+								<div class="field">
+								<a href="signup/"><button class="btn btn-outline-primary">Sign Up</button></a>
+
+							</div>
+
+								<div class="field1">
+									<a href="login/"><button class="btn btn-outline-primary">Login</button></a>
+								</div>
+				{% endif %}
+
+				</div>
+					
+            <div class="clear"></div>
+   </div>
+</div>
+</div>
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+				<div class="section group">
+				<div class="col span_2_of_3">
+				  <div class="contact-form">
+				  	<h3>Contact Us</h3>
+					    <form  method="post">
+								 {% csrf_token %}
+					    	<div>
+						    	<span><label>NAME</label></span>
+						    	<span>{{ form.contact_name }}</span>
+						    </div>
+						    <div>
+						    	<span><label>E-MAIL</label></span>
+						    	<span>{{ form.contact_email }}</span>
+									<span style="color:red">{{ form.errors.contact_email }}</span>
+						    </div>
+						    <div>
+						     	<span><label>SUBJECT</label></span>
+						    	<span>{{ form.contact_subject }}</span>
+						    </div>
+						    <div>
+						    	<span><label>TELL US MORE</label></span>
+						    	<span>{{ form.contact_detail }}</span>
+						    </div>
+
+						   <div>
+
+						   		<span><input type="submit"  value="Submit" style="left: 0px;"></span>
+						  </div>
+					    </form>
+				  </div>
+  				</div>
+				<div class="col span_1_of_3">
+					<div class="contact_info">
+    	 				<h3>Find Us Here</h3>
+					    	  <div class="map">
+
+							   	    <iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14019.176924127049!2d77.25200955!3d28.545904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1591622236896!5m2!1sen!2sin"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">View Larger Map</a></small>
+							  </div>
+      				</div>
+      			<div class="company_address">
+				     	<h3>Company Information :</h3>
+						    	<p>BoxOffice,</p>
+						   		<p>New Delhi-110019,</p>
+						<p>Phone:(00) 222 666 444</p>
+
+				 	 	<p>Email: <span><a href="mailto:anejakartik54@gmail.com">anejakartik54@gmail.com</a></span></p>
+				   		<p>Follow on: <span><a href="https://www.facebook.com/">Facebook</a></span>, <span><a href="https://twitter.com/">Twitter</a></span></p>
+				   </div>
+				 </div>
+			  </div>
+				<div class="clear"></div>
+			</div>
+	</div>
+</div>
+<div class="footer">
+	<div class="wrap">
+			<div class="footer-top">
+				<div class="col_1_of_4 span_1_of_4">
+
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<div class="textcontact">
+						<p>BoxOffice,<br>
+						New Delhi-110019,<br>
+						Ph: +(91)8700167255.<br>
+						Email : <a href="mailto:anejakartik54@gmail.com">anejakartik54@gmail.com</a><br>
+						</p>
+					</div>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<div class="call_info">
+						<p class="txt_3">Call us toll free:</p>
+						<p class="txt_4">1 800 234 23456</p>
+					</div>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<div class=social>
+						<a href="https://www.facebook.com/"><img src='{% static "images/fb.png" %}' alt=""/></a>
+						<a href="https://twitter.com/"><img src='{% static "images/tw.png" %}' alt=""/></a>
+						<a href="https://in.pinterest.com/"><img src='{% static "images/pinterest.png" %}' alt=""/></a>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+	<div class="wrap">
+	<div class="copy">
+	<p>© 2020 Theater. All Rights Reserved | Design by <a href="https://www.linkedin.com/in/kartik-aneja-648a14189/">Kartik</a></p>
+	</div>
+ 	</div>
+</div>
+</body>
+</html>

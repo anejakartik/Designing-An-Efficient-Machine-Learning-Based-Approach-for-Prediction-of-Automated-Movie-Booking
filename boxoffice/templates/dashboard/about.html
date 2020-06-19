@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>BoxOffice</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css" media="all" />
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.color-RGBa-patch.js'%}"></script>
+<script src="{% static 'js/example.js'%}"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="header">
+	<div class="header-top">
+		<div class="wrap">
+			<div class="banner-no">
+		  		<img src='{% static "images/bn-sy.png" %}' alt="" style="width: 140px;height: 136px;margin-left: 70px;">
+		    </div>
+			  <div class="nav-wrap">
+					<ul class="group" id="example-one">
+			           <li><a href="/index">Home</a></li>
+			           <li class="current_page_item"><a href="/about">About</a></li>
+			  		   <li><a href="/movies">Movies & Events</a></li>
+			  		   <li ><a href="/contact">Contact</a></li>
+			        </ul>
+			  </div>
+ 			<div class="clear"></div>
+   		</div>
+    </div>
+<div class="block">
+	<div class="wrap">
+		<div class="h-logo">
+			<a href="/index"><img src='{% static "images/logo1.png" %}'alt=""/></a>
+		</div>
+		<div id="reservation-form">
+      {% if request.user.is_authenticated %}
+      <div class="field">
+      <h3>Welcome {{ request.user }}  </h3>
+      </div>
+      <div class="field1">
+        <a href="logout_now/"><button class="btn btn-outline-primary">Logout</button></a>
+      </div>
+      {% else %}
+                <div class="field">
+                <a href="signup/"><button class="btn btn-outline-primary">Sign Up</button></a>
+
+              </div>
+
+                <div class="field1">
+                  <a href="login/"><button class="btn btn-outline-primary">Login</button></a>
+                </div>
+        {% endif %}
+
+        </div>
+
+            <div class="clear"></div>
+   </div>
+</div>
+</div>
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+				<div class="section group">
+					<div class="about span_1_of_2">
+						<h3>About Us</h3>
+							<div class="about-top">
+								<div class="grid images_3_of_2">
+									<img src='{% static "images/about1.jpg" %}' alt=""/>
+								</div>
+								<div class="desc span_3_of_2">
+									<h4>Our Journey</h4>
+
+									<p>BoxOffice focus on developing captivating architectural designs make the multiplexes look aspirational and also complete the ‘Experience’ promise. Driven by its passion to improvise unremittingly and deliver moments which may be treasured by patrons, BoxOffice is committed towards operating a sustainable, responsible and profitable business venture and attain new levels of operational brilliance.</p>
+
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="about-top">
+								<div class="grid images_3_of_2">
+									<img src='{% static "images/about2.png" %}' alt="" style="width: 275px;height: 275px;">
+								</div>
+								<div class="desc span_3_of_2">
+									<h4>Our Goals </h4>
+
+									<p>Current goal is to make customer-oriented movie booking application so to take movie watching experience to next level with offers based on customer needs.Next we will focus on improving theatre quality according to customer-reviews so to make cinematic experience more effective and worth remembering.</p>
+
+								</div>
+								<div class="clear"></div>
+							</div>
+
+					</div>
+				<div class="rightsidebar span_3_of_1">
+						<h3>Latest Movies</h3>
+						<div class="small_box premier">
+	                    	<a href="https://www.youtube.com/watch?v=u5r77-OQwa8" class="col"><img src='{% static "images/soor.jpg" %}' width="76" height="112" alt=""><br>Sooryavanshi</a>
+	                    	<a href="https://www.youtube.com/watch?v=RxAtuMu_ph4" class="col"><img src='{% static "images/widow.jpg" %}' width="76" height="112" alt=""><br>Black Widow</a>
+	                        <a href="https://www.youtube.com/watch?v=sft5baUuzQs" class="col"><img src='{% static "images/malang.jpg" %}' width="76" height="112" alt=""><br>Malang</a>
+	                        <div class="clear"></div>
+							<a href="#" class="button ">See all</a>
+                    	</div>
+                    <h3>Latest News</h3>
+                    <ul class="latest_news">
+                        	<li>
+                            	<span class="date">June. 15. 2020</span><br>
+                            	<a href="https://screenrant.com/nba-players-marvel-black-widow-early-disney-world/">NBA Players Reportedly Get To See Marvel's Black Widow Early</a>
+                            </li>
+                            <li>
+                            	<span class="date">June. 03. 2020</span><br>
+                            	<a href="https://www.deccanherald.com/entertainment/entertainment-news/the-shoot-of-kartik-aaryan-s-bhool-bhulaiyaa-2-will-not-be-resuming-anytime-soon-says-producer-845057.html">The shoot of Kartik Aaryan’s ‘Bhool Bhulaiyaa 2’ will not be resuming anytime soon, says producer</a>
+                            </li>
+                            <li class="m_bottom">
+                            	<span class="date">February. 03. 2020</span><br>
+                            	<a href="https://www.indiawest.com/entertainment/bollywood/">Featuring Amitabh Bachchan to Release This December In Five Indian Languages</a>
+                            </li>
+
+                        </ul>
+
+ 				</div>
+			</div>
+				<div class="clear"></div>
+			</div>
+	</div>
+</div>
+<div class="footer">
+	<div class="wrap">
+			<div class="footer-top">
+				<div class="col_1_of_4 span_1_of_4">
+
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<div class="textcontact">
+						<p>BoxOffice,<br>
+						New Delhi-110019,<br>
+						Ph: +(91)8700167255.<br>
+						Email : <a href="mailto:anejakartik54@gmail.com">anejakartik54@gmail.com</a><br>
+						</p>
+					</div>
+				</div>
+
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<div class=social>
+						<a href="https://www.facebook.com/"><img src='{% static "images/fb.png" %}' alt=""/></a>
+						<a href="https://twitter.com/"><img src='{% static "images/tw.png" %}' alt=""/></a>
+						<a href="https://in.pinterest.com/"><img src='{% static "images/pinterest.png" %}' alt=""/></a>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+	<div class="wrap">
+	<div class="copy">
+	<p>© 2020 Theater. All Rights Reserved | Design by <a href="https://www.linkedin.com/in/kartik-aneja-648a14189/">Kartik</a></p>
+	</div>
+ 	</div>
+</div>
+</body>
+</html>

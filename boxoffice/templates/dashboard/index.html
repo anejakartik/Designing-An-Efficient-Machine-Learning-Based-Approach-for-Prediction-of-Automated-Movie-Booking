@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>BoxOffice</title>
+<style>
+
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css" media="all" />
+<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="{% static 'js/modernizr.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.color-RGBa-patch.js'%}"></script>
+<script src="{% static 'js/example.js'%}"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- jQuery -->
+<!-- FlexSlider -->
+  <script defer src='{% static "js/jquery.flexslider.js" %}'></script>
+  <script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+  </script>
+  <!-- DC Tabs CSS -->
+<link type="text/css" rel="stylesheet" href='{% static "http://www.dreamtemplate.com/dreamcodes/tabs/css/tsc_tabs.css" %}'/>
+ <!-- jQuery Library (skip this step if already called on page ) -->
+<script type="text/javascript" src='{% static "http://www.dreamtemplate.com/dreamcodes/jquery.min.js" %}'></script> <!-- (do not call twice) -->
+ <!-- DC Tabs JS -->
+<!--<script type="text/javascript" src="http://www.dreamtemplate.com/dreamcodes/tabs/js/tsc_tabs.js"></script>-->
+<link rel="stylesheet" href='{% static "css/tsc_tabs.css" %}'type="text/css" media="all" />
+</head>
+<body>
+<div class="header">
+  	<div class="header-top">
+    		<div class="wrap">
+    			<div class="banner-no">
+    		  		<img src='{% static "images/bn-sy.png" %}' alt="" style="width: 140px;height: 136px;margin-left: 70px;">
+    		    </div>
+    			  <div class="nav-wrap">
+    					<ul class="group" id="example-one">
+    			           <li class="current_page_item"><a href="/index">Home</a></li>
+    			           <li><a href="/about">About</a></li>
+    			  		   <li><a href="/movies">Movies & Events</a></li>
+    			  		   <li ><a href="/contact">Contact</a></li>
+    			        </ul>
+    			  </div>
+     			<div class="clear"></div>
+       		</div>
+        </div>
+<div class="block">
+	<div class="wrap">
+		<div class="h-logo">
+		<a href="/index"><img src='{% static "images/logo1.png" %}'alt=""/></a>
+		</div>
+
+    <div id="reservation-form">
+      {% if request.user.is_authenticated %}
+      <div class="field">
+      <h3>Welcome {{ request.user }}  </h3>
+      </div>
+      <div class="field1">
+        <a href="logout_now/"><button class="btn btn-outline-primary">Logout</button></a>
+      </div>
+      {% else %}
+                <div class="field">
+                <a href="signup/"><button class="btn btn-outline-primary">Sign Up</button></a>
+
+              </div>
+
+                <div class="field1">
+                  <a href="login/"><button class="btn btn-outline-primary">Login</button></a>
+                </div>
+        {% endif %}
+
+        </div>
+            <div class="clear"></div>
+   </div>
+</div>
+
+<div class="banner">
+ <div class="wrap">
+      <section class="slider">
+        <div class="flexslider">
+          <ul class="slides">
+            {% for movie in top_movie %}
+            <li>
+  	    	    <a href="{{ movie.trailer }}" rel="lightbox"><img src="/media_cdn/{{ movie.image }}" alt="{{ movie.name }}" style="width: 1215px;height: 432px;"></a>
+  	    	</li>
+          {% endfor %}
+          </ul>
+        </div>
+      </section>
+   </div>
+</div>
+</div>
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+				<div class="listview_1_of_3 images_1_of_3">
+					<h3>Movie News</h3>
+				<div class="content-left">
+					<div class="listimg listimg_1_of_2">
+						 <img src='{% static "images/soor.jpg" %}'alt=""/>
+					</div>
+					<div class="text list_1_of_2">
+						  <div class="extra-wrap">
+                                <div class="data">June 11, 2020</div>
+                                <a href="https://timesofindia.indiatimes.com/entertainment/hindi/bollywood/news" class="color"><strong>'Sooryavanshi' to 'Bell Bottom'</strong></a><br>
+                                <span class="text-top">Akshay Kumar is all set to rule the box office with THESE interesting films!</span>
+                          </div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="content-left">
+					<div class="listimg listimg_1_of_2">
+						 <img src='{% static "images/braham.jpg" %}' alt=""/>
+					</div>
+					<div class="text list_1_of_2">
+						  <div class="extra-wrap">
+                                <div class="data">February. 03. 2020</div>
+                                <a href="https://www.indiawest.com/entertainment/bollywood/" class="color"><strong>Brahmastra</strong></a><br>
+                                <span class="text-top">Featuring Amitabh Bachchan to Release This December In Five Indian Languages</span>
+                          </div>
+
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="content-left">
+					<div class="listimg listimg_1_of_2">
+						 <img style="width: 100px;height: 85px;"src='{% static "images/bhool.jpg" %}'alt="" />
+					</div>
+					<div class="text list_1_of_2">
+						  <div class="extra-wrap">
+                               <div class="data">June. 03. 2020</div>
+                               <a href="https://www.deccanherald.com/entertainment/entertainment-news/the-shoot-of-kartik-aaryan-s-bhool-bhulaiyaa-2-will-not-be-resuming-anytime-soon-says-producer-845057.html" class="color"><strong>Bhool Bhulaiyaa 2</strong></a><br>
+                               <span class="text-top">The shoot of Kartik Aaryan’s ‘Bhool Bhulaiyaa 2’ will not be resuming anytime soon, says producer</span>
+                          </div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="content-left">
+					<div class="listimg listimg_1_of_2">
+						 <img src='{% static "images/widow.jpg" %}' alt=""/>
+					</div>
+					<div class="text list_1_of_2">
+						  <div class="extra-wrap">
+                               <div class="data">June. 15. 2020</div>
+                               <a href="https://screenrant.com/nba-players-marvel-black-widow-early-disney-world/" class="color"><strong>Black Widow</strong></a><br>
+                               <span class="text-top">NBA Players Reportedly Get To See Marvel's Black Widow Early</span>
+                          </div>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+		</div>
+		<div class="listview_1_of_3 images_1_of_3">
+					<h3>Trailers</h3>
+					<div class="middle-list">
+						<div class="listimg1">
+							 <img src='{% static "images/angrezi.jpg"  %}'style="width: 165px;height: 93px;"  alt=""/>
+							 <a href="https://www.youtube.com/watch?v=rzlfeocUVhI" class="link">Angrezi Medium</a>
+						</div>
+						<div class="listimg2">
+							<img src='{% static "images/Chhapaak.jpg"  %}' style="width: 165px;height: 93px;"  alt=""/>
+							<a href="https://www.youtube.com/watch?v=kXVf-KLyybk" class="link">Chhapaak</a>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="middle-list">
+						<div class="listimg1">
+							<img src='{% static "images/malang.jpg" %}' style="width: 165px;height: 93px;"  alt=""/>
+							<a href="https://www.youtube.com/watch?v=sft5baUuzQs" class="link">Malang</a>
+						</div>
+						<div class="listimg2">
+							<img src='{% static "images/street.jpg" %}' style="width: 165px;height: 93px;"  alt=""/>
+							<a href="https://www.youtube.com/watch?v=2Ym7LJv6L_c" class="link">Street Dancer 3D</a>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="middle-list">
+						<div class="listimg1">
+							<img src='{% static "images/widow.jpg" %}' alt="" style="width: 165px;height: 93px;"/>
+							<a href="https://www.youtube.com/watch?v=RxAtuMu_ph4" class="link">Black Widow</a>
+						</div>
+						<div class="listimg2">
+							<img style="width: 165px;height: 93px;" src='{% static "images/soor.jpg" %}'alt=""/>
+							<a href="https://www.youtube.com/watch?v=u5r77-OQwa8" class="link">Sooryavanshi</a>
+						</div>
+						<div class="clear"></div>
+					</div>
+
+
+		</div>
+		<div class="listview_1_of_3 images_1_of_3">
+					<h3>Films in Theaters</h3>
+          {% for movie in movie_list %}
+					<div class="content-left">
+					<div class="listimg listimg_1_of_2">
+						 <img src="/media_cdn/{{ movie.image }}" alt="{{ movie.name }}" style="width: 100px;height: 135px;" />
+             <br>
+					</div>
+					<div class="text list_1_of_2">
+						  <div class="extra-wrap1">
+                                        <a href="{{ movie.trailer }}" class="link4">{{movie.name}}</a><br><br>
+                                        Genre: <a href="https://en.wikipedia.org/wiki/" class="color2">{{movie.genre}}</a> / <a href="https://en.wikipedia.org/wiki/Drama" class="color2">Drama</a><br>
+                                        <span class="link-top">Actors: <a href="#" class="color2">{{movie.cast}} </a> </span>
+              <br>                      </div>
+					</div>
+					<div class="clear"></div>
+				</div>
+        {% endfor %}
+
+				</div>
+				<div class="clear"></div>
+			</div>
+	</div>
+</div>
+<div class="footer">
+  <div class="wrap">
+      <div class="footer-top">
+        <div class="col_1_of_4 span_1_of_4">
+
+        </div>
+        <div class="col_1_of_4 span_1_of_4">
+          <div class="textcontact">
+            <p>BoxOffice,<br>
+            New Delhi-110019,<br>
+            Ph: +(91)8700167255.<br>
+            Email : <a href="mailto:anejakartik54@gmail.com">anejakartik54@gmail.com</a><br>
+            </p>
+          </div>
+        </div>
+        
+        <div class="col_1_of_4 span_1_of_4">
+          <div class=social>
+            <a href="https://www.facebook.com/"><img src='{% static "images/fb.png" %}' alt=""/></a>
+            <a href="https://twitter.com/"><img src='{% static "images/tw.png" %}' alt=""/></a>
+            <a href="https://in.pinterest.com/"><img src='{% static "images/pinterest.png" %}' alt=""/></a>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+  <div class="wrap">
+  <div class="copy">
+  <p>© 2020 Theater. All Rights Reserved | Design by <a href="https://www.linkedin.com/in/kartik-aneja-648a14189/">Kartik</a></p>
+  </div>
+  </div>
+</div>
+</body>
+</html>

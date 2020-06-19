@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>BoxOffice</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css" media="all" />
+<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="all" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.color-RGBa-patch.js'%}"></script>
+<script src="{% static 'js/example.js'%}"></script>
+<script src='{% static "js/lightbox.js" %}'></script>
+<script>
+  jQuery(document).ready(function($) {
+      $('a').smoothScroll({
+        speed: 1000,
+        easing: 'easeInOutCubic'
+      });
+
+      $('.showOlderChanges').on('click', function(e){
+        $('.changelog .old').slideDown('slow');
+        $(this).fadeOut();
+        e.preventDefault();
+      })
+  });
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2196019-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+  <div class="header">
+  	<div class="header-top">
+  		<div class="wrap">
+  			<div class="banner-no">
+  		  		<img src='{% static "images/bn-sy.png" %}' alt="" style="width: 140px;height: 136px;margin-left: 70px;">
+  		    </div>
+  			  <div class="nav-wrap">
+  					<ul class="group" id="example-one">
+  			           <li><a href="/index">Home</a></li>
+  			           <li><a href="/about">About</a></li>
+  			  		   <li class="current_page_item"><a href="/movies">Movies & Events</a></li>
+  			  		   <li ><a href="/contact">Contact</a></li>
+  			        </ul>
+  			  </div>
+   			<div class="clear"></div>
+     		</div>
+      </div>
+  <div class="block">
+  	<div class="wrap">
+  		<div class="h-logo">
+  			<a href="/index"><img src='{% static "images/logo1.png" %}'alt=""/></a>
+  		</div>
+      <div id="reservation-form">
+        {% if request.user.is_authenticated %}
+        <div class="field">
+        <h3>Welcome {{ request.user }}  </h3>
+        </div>
+        <div class="field1">
+          <a href="logout_now/"><button class="btn btn-outline-primary">Logout</button></a>
+        </div>
+        {% else %}
+                  <div class="field">
+                  <a href="signup/"><button class="btn btn-outline-primary">Sign Up</button></a>
+
+                </div>
+
+                  <div class="field1">
+                    <a href="login/"><button class="btn btn-outline-primary">Login</button></a>
+                  </div>
+          {% endif %}
+
+          </div>
+
+
+              <div class="clear"></div>
+     </div>
+  </div>
+  </div>
+
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+      	<h3>Payment Details</h3>
+        <div class="imageRow" >
+        <div class="col_1_of_4 span_1_of_4">
+        <a href="{{ show.movie.trailer }}" rel="lightbox"><img src="/media_cdn/{{ show.movie.image }}" alt="{{ show.movie.name }}"style="width: 244px;height: 180px;"></a>
+        </div>
+      <form action="{% url 'booked' %}" method="post" >
+        {% csrf_token %}
+        <div class="col_1_of_4 span_1_of_4">
+          <div class="movie-text">
+            <p class="h-para" style="font-size:0.9em;color:#2262d6;">Movie: {{show.movie.name}}
+              	<input type="hidden" name="showid" value={{show.show_id}}>
+            </p>
+            <p class="h-para" style="font-size:0.9em;color:#2262d6;">Theatre: {{show.theatre.name}}</p>
+            <p class="h-para" style="font-size:0.9em;color:#2262d6;">Screen: {{show.screen}}</p>
+            <p class="h-para" style="font-size:0.9em;color:#2262d6;">Showtime: {{show.time}}</p>
+            <p class="h-para" style="font-size:0.9em;color:#2262d6;">Date: {{show.date}} minutes</p>
+            <p class="h-para" style="font-size:0.9em;color:#2262d6;">No of Seats : {{ticket_details.no_of_tickets}}
+            	<input type="hidden" name="no_of_seats" value={{ticket_details.no_of_tickets}}></p>
+
+          </div>
+      </div>
+      <div class="col_1_of_4 span_1_of_4">
+        <div class="movie-text">
+
+          <p class="h-para" style="font-size:0.9em;color:#2262d6;">Seat Selected : {{seats_selected}}
+            {% for seat in seat_list %}
+            <input type="hidden" name="seat_list" value={{seat}}>
+            {%endfor%}
+        </p>
+          <p class="h-para" style="font-size:0.9em;color:#2262d6;">Total:Rs {{ticket_details.price}}</p>
+            	<input type="hidden" name="price" value={{ticket_details.price}}>
+          <p class="h-para" style="font-size:0.9em;color:#2262d6;">{{form}}</p>
+
+          <p class="h-para">
+
+              <button type="submit" >Pay</button>
+            </form>
+          </p>
+      </div>
+
+    </div>
+
+    </div>
+    </div>
+      <div class="clear"></div>
+    </div>
+
+
+
+    <div class="footer">
+      <div class="wrap">
+          <div class="footer-top">
+            <div class="col_1_of_4 span_1_of_4">
+
+            </div>
+            <div class="col_1_of_4 span_1_of_4">
+              <div class="textcontact">
+                <p>BoxOffice,<br>
+                New Delhi-110019,<br>
+                Ph: +(91)8700167255.<br>
+                Email : <a href="mailto:anejakartik54@gmail.com">anejakartik54@gmail.com</a><br>
+                </p>
+              </div>
+            </div>
+
+            <div class="col_1_of_4 span_1_of_4">
+              <div class=social>
+                <a href="https://www.facebook.com/"><img src='{% static "images/fb.png" %}' alt=""/></a>
+                <a href="https://twitter.com/"><img src='{% static "images/tw.png" %}' alt=""/></a>
+                <a href="https://in.pinterest.com/"><img src='{% static "images/pinterest.png" %}' alt=""/></a>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+      <div class="wrap">
+      <div class="copy">
+      <p>© 2020 Theater. All Rights Reserved | Design by <a href="https://www.linkedin.com/in/kartik-aneja-648a14189/">Kartik</a></p>
+      </div>
+      </div>
+    </div>
+    </body>
+    </html>

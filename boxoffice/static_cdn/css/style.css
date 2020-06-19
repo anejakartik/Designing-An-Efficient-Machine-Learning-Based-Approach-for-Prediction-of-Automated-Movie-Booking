@@ -30,14 +30,14 @@ img{max-width:100%;}
 /*end reset*/
 @font-face {
 	font-family: 'AmbleRegular';
-    src: url( ../fonts/Amble-Light-webfont.ttf ) format("truetype"); 
+    src: url( ../fonts/Amble-Light-webfont.ttf ) format("truetype");
 }
 body{
 	font-family: 'AmbleRegular';
 	background:#fff;
 }
 .header{
-	background: url(../images/hd-bg.png);
+	background: #0c0a0a;
 }
 .header-top{
 	border-bottom: 2px ridge #333;
@@ -53,48 +53,48 @@ body{
 header { padding: 100px 0 0 0; display: block; }
 header h1 { width: 960px; margin: 0 auto; }
 a:hover { color: white; }
-.nav-wrap { 
+.nav-wrap {
 	float: right;
 	width: 67%;
-	margin: 50px auto; 
+	margin: 50px auto;
 }
 .nav-wrap ul{
 	float:right;
 }
 /* Clearfix */
 .group:after { visibility: hidden; display: block; content: ""; clear: both; height: 0; }
-*:first-child+html .group { zoom: 1; } 
+*:first-child+html .group { zoom: 1; }
 /* Example One */
-#example-one { 
-	margin: 0 auto; 
-	list-style: none; 
-	position: relative; 
+#example-one {
+	margin: 0 auto;
+	list-style: none;
+	position: relative;
 }
-#example-one li { 
-	display: inline-block;	
+#example-one li {
+	display: inline-block;
 	margin-right: 20px;
 }
-#example-one a { 
-	color: #aaa; 
-	font-size: 14px; 
+#example-one a {
+	color: #aaa;
+	font-size: 14px;
 	float: left;
 	padding: 6px 10px 4px 10px;
 	text-decoration: none;
 	text-transform: uppercase;
 }
-#example-one a:hover { 
+#example-one a:hover {
 	color:#DB9603;
 }
-#magic-line { 
+#magic-line {
 	position: absolute;
-	bottom: -2px; 
-	left: 0; 
-	width:10px; 
-	height: 2px; 
+	bottom: -2px;
+	left: 0;
+	width:10px;
+	height: 2px;
 	background:#DB9603;
 }
-.ie6 #example-one li, .ie7 #example-one li { 
-	display: inline; 
+.ie6 #example-one li, .ie7 #example-one li {
+	display: inline;
 }
 .ie6 #magic-line {
 	bottom: -3px;
@@ -228,7 +228,7 @@ a:hover {
 	margin-bottom: 10%;
 }
 .link2:hover{
-	text-decoration:underline; 
+	text-decoration:underline;
 	color:#FCAC03;
 }
 .middle-list{
@@ -243,7 +243,7 @@ a:hover {
 
 .images_1_of_3 {
 	width: 29.2%;
-	padding:1.5%; 
+	padding:1.5%;
 }
 .listimg_1_of_2{
 	width:28.2%;
@@ -265,25 +265,25 @@ a:hover {
 	letter-spacing: -1px;
 }
 .list_1_of_2  p{
-	font-size:0.8125em;	
+	font-size:0.8125em;
 	color: #333;
 	line-height: 1.5em;
 	font-family : verdana, arial, helvetica, helve, sans-serif;
-	padding:0; 	
+	padding:0;
 }
 /***** Media Quries *****/
 @media only screen and (max-width: 1024px) {
 	.wrap{
 		width:90%;
-	}	
+	}
 }
 /*  GO FULL WIDTH AT LESS THAN 640 PIXELS */
 @media only screen and (max-width: 640px) {
-	
+
 	.wrap{
 		width:95%;
 	}
-	.listview_1_of_3{ 
+	.listview_1_of_3{
 		margin: 2% 0 2% 0%;
 	}
 	.text{
@@ -296,11 +296,11 @@ a:hover {
 }
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 @media only screen and (max-width: 480px) {
-	
+
 	.wrap{
 		width:95%;
 	}
-	.listview_1_of_3{ 
+	.listview_1_of_3{
 		margin: 2% 0 2% 0%;
 	}
 	.text {
@@ -342,7 +342,7 @@ p.s-img a:hover{
 }
 /*--Footer--*/
 .footer {
-	background:#222;
+	background:#0c0a0a;
 }
 .footer-top{
 	padding: 20px 0;
@@ -352,7 +352,7 @@ p.s-img a:hover{
 	display: block;
 	float:left;
 }
-.col_1_of_4:first-child { margin-left: 0; } 
+.col_1_of_4:first-child { margin-left: 0; }
 .span_1_of_4 {
 	width: 22%;
 	padding: 1.5%;
@@ -379,19 +379,19 @@ p.txt_4{
 @media only screen and (max-width: 1024px) {
 	.wrap{
 		width:95%;
-	}	
+	}
 }
 /*  GO FULL WIDTH AT LESS THAN 640 PIXELS */
 @media only screen and (max-width: 640px) and (min-width: 480px) {
 	.wrap{
 		width:95%;
 	}
-	.col_1_of_4{ 
+	.col_1_of_4{
 		margin: 1% 0 1% 0%;
 	}
 	.span_1_of_4 {
 		width:94%;
-		padding:3%;  
+		padding:3%;
 	}
 }
 
@@ -400,12 +400,12 @@ p.txt_4{
 	.wrap{
 		width:95%;
 	}
-	.col_1_of_4{ 
+	.col_1_of_4{
 		margin: 1% 0 1% 0%;
 	}
 	.span_1_of_4 {
 		width:92%;
-		padding:4%; 
+		padding:4%;
 	}
 }
 .footer-nav li {
@@ -449,7 +449,7 @@ p.txt_4{
 	float:left;
 	margin: 0% 0 0% 1.6%;
 }
-.about:first-child { margin-left: 0; } 
+.about:first-child { margin-left: 0; }
 .desc{
 	display: block;
 	float:left;
@@ -498,7 +498,7 @@ p.txt_4{
 @media only screen and (max-width: 1024px) {
 	.wrap{
 		width:90%;
-	}	
+	}
 }
 /*  GO FULL WIDTH AT LESS THAN 640 PIXELS */
 @media only screen and (max-width: 640px) {
@@ -508,7 +508,7 @@ p.txt_4{
 	.grid {
 		margin:0;
 	}
-	.about{ 
+	.about{
 		margin: 2% 0 2% 0%;
 	}
 	.rightsidebar{
@@ -541,7 +541,7 @@ p.txt_4{
 	.wrap{
 		width:95%;
 	}
-	.about{ 
+	.about{
 		margin: 2% 0 2% 0%;
 	}
 	.rightsidebar{
@@ -684,14 +684,14 @@ h4.h-text a:hover{
 }
 .col:first-child{
 	margin-left:0;
-}	
+}
 .span_2_of_3 {
 	width: 63.1%;
-	padding:1.5%; 
+	padding:1.5%;
 }
 .span_1_of_3 {
 	width: 29.2%;
-	padding:1.5%; 
+	padding:1.5%;
 }
 .span_2_of_3  h3,
 .span_1_of_3  h3 {
@@ -734,7 +734,7 @@ h4.h-text a:hover{
 }
 .contact-form textarea{
 	resize:none;
-	height:120px;		
+	height:120px;
 }
 .contact-form input[type="submit"]{
 	padding:7px 20px;
@@ -753,7 +753,7 @@ h4.h-text a:hover{
 	background-color:#111;
 }
 .contact-form input[type="submit"]:active{
-	background-color:#DB9603;  
+	background-color:#DB9603;
 }
 .company_address{
 	padding-top:26px;
@@ -777,7 +777,7 @@ h4.h-text a:hover{
 @media only screen and (max-width: 1024px) {
 	.wrap{
 		width:95%;
-	}	
+	}
 }
 /*  GO FULL WIDTH AT LESS THAN 800 PIXELS */
 
@@ -787,14 +787,14 @@ h4.h-text a:hover{
 	}
 	.span_2_of_3 {
 		width:94%;
-		padding:3%; 
+		padding:3%;
 	}
-	.col{ 
+	.col{
 		margin: 1% 0 1% 0%;
 	}
 	.span_1_of_3 {
 		width:94%;
-		padding:3%; 
+		padding:3%;
 	}
 }
 
@@ -806,16 +806,16 @@ h4.h-text a:hover{
 	}
 	.span_2_of_3 {
 		width:94%;
-		padding:3%; 
+		padding:3%;
 	}
-	.col{ 
+	.col{
 		margin: 1% 0 1% 0%;
 	}
 	.span_1_of_3 {
 		width:94%;
-		padding:3%; 
+		padding:3%;
 	}
-   
+
    .contact-form input[type="text"],.contact-form textarea{
 		width:97%;
 	}
@@ -828,14 +828,14 @@ h4.h-text a:hover{
 	}
 	.span_2_of_3 {
 		width:90%;
-		padding:5%; 
+		padding:5%;
 	}
-	.col { 
+	.col {
 		margin: 1% 0 1% 0%;
 	}
 	.span_1_of_3 {
 		width:90%;
-		padding:5%; 
+		padding:5%;
 	}
 	.contact-form input[type="text"],.contact-form textarea{
 		width:92%;

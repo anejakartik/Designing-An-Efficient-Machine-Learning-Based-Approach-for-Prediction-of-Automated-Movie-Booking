@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>BoxOffice</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css" media="all" />
+<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="all" />
+
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.color-RGBa-patch.js'%}"></script>
+<script src="{% static 'js/example.js'%}"></script>
+<script src='{% static "js/lightbox.js" %}'></script>
+<script>
+
+  jQuery(document).ready(function($) {
+      $('a').smoothScroll({
+        speed: 1000,
+        easing: 'easeInOutCubic'
+      });
+
+      $('.showOlderChanges').on('click', function(e){
+        $('.changelog .old').slideDown('slow');
+        $(this).fadeOut();
+        e.preventDefault();
+      })
+  });
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2196019-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+  <div class="header">
+  	<div class="header-top">
+  		<div class="wrap">
+  			<div class="banner-no">
+  		  		<img src='{% static "images/bn-sy.png" %}' alt="" style="width: 140px;height: 136px;margin-left: 70px;">
+  		    </div>
+  			  <div class="nav-wrap">
+  					<ul class="group" id="example-one">
+  			           <li><a href="/index">Home</a></li>
+  			           <li><a href="/about">About</a></li>
+  			  		   <li class="current_page_item"><a href="/movies">Movies & Events</a></li>
+  			  		   <li ><a href="/contact">Contact</a></li>
+  			        </ul>
+  			  </div>
+   			<div class="clear"></div>
+     		</div>
+      </div>
+  <div class="block">
+  	<div class="wrap">
+  		<div class="h-logo">
+  			<a href="/index"><img src='{% static "images/logo1.png" %}'alt=""/></a>
+  		</div>
+      <div id="reservation-form">
+        {% if request.user.is_authenticated %}
+        <div class="field">
+        <h3>Welcome {{ request.user }}  </h3>
+        </div>
+        <div class="field1">
+          <a href="logout_now/"><button class="btn btn-outline-primary">Logout</button></a>
+        </div>
+        {% else %}
+                  <div class="field">
+                  <a href="signup/"><button class="btn btn-outline-primary">Sign Up</button></a>
+
+                </div>
+
+                  <div class="field1">
+                    <a href="login/"><button class="btn btn-outline-primary">Login</button></a>
+                  </div>
+          {% endif %}
+
+          </div>
+              <div class="clear"></div>
+     </div>
+  </div>
+  </div>
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+			<h3>Movies</h3>
+      <br>
+
+      <h3>Now Showing</h3>
+        <div class="imageRow" >
+        {% for movie in movie_list %}
+        <div class="col_1_of_4 span_1_of_4">
+
+						  	<div class="single">
+						  		<a href="{{ movie.trailer }}" rel="lightbox"><img src="/media_cdn/{{ movie.image }}" alt="{{ movie.name }}"style="width: 244px;height: 180px;"></a>
+						  	</div>
+						  	<div class="movie-text">
+						  		<h4 style="font-size: 14px" class="h-text" ><a href="{% url 'movie_details' movie.movie_id %}">{{ movie.name }}</a></h3>
+						  		<p class="h-para"></p>
+						  	</div>
+
+		  				</div>
+              {% if forloop.counter|divisibleby:4 %}
+                    </div>
+
+        {% if forloop.counter != movie_list|length %}
+
+        <div class="imageRow">
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+			</div>
+			</div>
+				<div class="clear"></div>
+			</div>
+
+
+
+      <div class="footer">
+      	<div class="wrap">
+      			<div class="footer-top">
+      				<div class="col_1_of_4 span_1_of_4">
+
+      				</div>
+      				<div class="col_1_of_4 span_1_of_4">
+      					<div class="textcontact">
+      						<p>BoxOffice,<br>
+      						New Delhi-110019,<br>
+      						Ph: +(91)8700167255.<br>
+      						Email : <a href="mailto:anejakartik54@gmail.com">anejakartik54@gmail.com</a><br>
+      						</p>
+      					</div>
+      				</div>
+      				<div class="col_1_of_4 span_1_of_4">
+      					<div class="call_info">
+      						<p class="txt_3">Call us toll free:</p>
+      						<p class="txt_4">1 800 234 23456</p>
+      					</div>
+      				</div>
+      				<div class="col_1_of_4 span_1_of_4">
+      					<div class=social>
+      						<a href="https://www.facebook.com/"><img src='{% static "images/fb.png" %}' alt=""/></a>
+      						<a href="https://twitter.com/"><img src='{% static "images/tw.png" %}' alt=""/></a>
+      						<a href="https://in.pinterest.com/"><img src='{% static "images/pinterest.png" %}' alt=""/></a>
+      					</div>
+      				</div>
+      				<div class="clear"></div>
+      			</div>
+      		</div>
+      	</div>
+      	<div class="footer-bottom">
+      	<div class="wrap">
+      	<div class="copy">
+      	<p>© 2020 Theater. All Rights Reserved | Design by <a href="https://www.linkedin.com/in/kartik-aneja-648a14189/">Kartik</a></p>
+      	</div>
+       	</div>
+      </div>
+      </body>
+      </html>
